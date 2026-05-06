@@ -6,8 +6,13 @@ export function Ship(name, length) {
       return name;
     },
 
-    hitShip() {
+    hit() {
       hits++;
+    },
+
+    // added getHits() to return number of hits;
+    getHits() {
+      return hits;
     },
 
     isSunk() {

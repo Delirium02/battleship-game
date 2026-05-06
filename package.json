@@ -1,10 +1,20 @@
 {
   "name": "js-webpack-template",
   "version": "1.0.0",
-  "description": "A starter template for JavaScript projects using Webpack and GH-Pages.",
   "private": true,
+  "description": "A starter template for JavaScript projects using Webpack and GH-Pages.",
+  "keywords": [],
+  "homepage": "https://github.com/Delirium02/battleship-game#readme",
+  "bugs": {
+    "url": "https://github.com/Delirium02/battleship-game/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Delirium02/battleship-game.git"
+  },
+  "license": "ISC",
+  "author": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "jest",
     "build": "webpack --config webpack.prod.js",
@@ -12,9 +22,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@babel/preset-env": "^7.29.2",

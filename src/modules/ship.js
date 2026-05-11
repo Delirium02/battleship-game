@@ -17,7 +17,7 @@ export function Ship(name, length) {
 
     getLength() {
       return length;
-    }
+    },
 
     isSunk() {
       return hits >= length;

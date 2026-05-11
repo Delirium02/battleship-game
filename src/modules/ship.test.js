@@ -1,3 +1,4 @@
+import { describe } from "node:test";
 import { Ship } from "./ship";
 
 describe("Testing Ship factory function", () => {

@@ -52,7 +52,7 @@ export function Gameboard() {
 			ships.push(ship);
 		},
 
-		recieveAttack: function(x, y) {
+		receiveAttack: function(x, y) {
 			if (x < 0 || x > 9 || y < 0 || y > 9) {
 				throw new RangeError("Cannot place ship: Coordinates must be between 0-9");
 			}
@@ -66,5 +66,9 @@ export function Gameboard() {
 				return "miss";
 			}
 		},
+
+		allSunk: function() {
+			return ships.every(ship => ship.isSunk());
+		}
 	};
 }

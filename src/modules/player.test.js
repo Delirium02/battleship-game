@@ -1,12 +1,28 @@
-import { Player } from "./player";
+import { Player, Computer } from "./player";
 
 describe("testing all individual functions inside the Player factory", () => {
-  const player1 = Player("One");
-  const player2 = Player("Two");
-  const enemyBoard = player2.getBoard();
-  player1.attack(enemyBoard, 2, 2);
+	test("testing if attack works", () => {
+		const player1 = Player("One");
+		const player2 = Player("Two");
+		const enemyBoard = player2.getPlayerBoard();
 
-  test("testing if attack works", () => {
-    expect(enemyBoard.getGrid()[2][2]).toBe("miss");
-  });
+		player1.playerAttack(enemyBoard, 2, 2);
+
+		expect(enemyBoard.getGrid()[2][2]).toBe("miss");
+	});
 });
+
+describe("testing functions of the Computer factory", () => {
+  test("test of computer basic attack", () => {
+    const player = Player();
+    const computer = Computer();
+    const playerBoard = player.getPlayerBoard();
+
+    computer.computerAttack(playerBoard);
+    const attackLocation = computer.getLastAttack();
+    const x = attackLocation[0];
+    const y = attackLocation[1];
+
+    expect(playerBoard.getGrid()[x][y]).toBe("miss");
+  })
+})

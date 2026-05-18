@@ -1,7 +1,7 @@
-import Ship from "./ship";
+import { Ship } from "./ship";
 
 export function Gameboard() {
-	const board = [];
+	const grid = [];
 	const ships = [];
 
 	for (let i = 0; i < 10; i++) {
@@ -10,12 +10,12 @@ export function Gameboard() {
 			row.push(null);
 		}
 
-		board.push(row);
+		grid.push(row);
 	}
 
 	return {
-		// Create an empty board
-		getBoard: () => board,
+		// Create an empty grid
+		getGrid: () => grid,
 
 		// Place ships
 		placeShip: (ship, x, y, orientation = 'vertical') => {
@@ -38,15 +38,15 @@ export function Gameboard() {
 				let checkX = orientation === 'vertical' ? x + i : x;
 				let checkY = orientation === 'horizontal' ? y + i: y;
 
-				if (board[checkX][checkY] !== null) {
+				if (grid[checkX][checkY] !== null) {
 					throw new Error("Cannot place ship: Slot already occupied");
 				}
 			}
 
 			// Place ship
 			for (let i = 0; i < length; i++) {
-				if (orientation === 'vertical') board[x + i][y] = ship;
-				if (orientation === 'horizontal') board[x][y + i] = ship;
+				if (orientation === 'vertical') grid[x + i][y] = ship;
+				if (orientation === 'horizontal') grid[x][y + i] = ship;
 			}
 
 			ships.push(ship);
@@ -54,15 +54,15 @@ export function Gameboard() {
 
 		receiveAttack: function(x, y) {
 			if (x < 0 || x > 9 || y < 0 || y > 9) {
-				throw new RangeError("Cannot place ship: Coordinates must be between 0-9");
+				throw new RangeError("Cannot attack: Coordinates must be between 0-9");
 			}
 
-			if (board[x][y] !== null) {
-				board[x][y].hit();
-				board[x][y] = "hit";
+			if (grid[x][y] !== null) {
+				grid[x][y].hit();
+				grid[x][y] = "hit";
 				return "hit";
 			} else {
-				board[x][y] = "miss";
+				grid[x][y] = "miss";
 				return "miss";
 			}
 		},

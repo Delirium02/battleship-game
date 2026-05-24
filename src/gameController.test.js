@@ -7,4 +7,11 @@ describe("game controller factory functions testing", () => {
     game.switchTurn();
     expect(game.getActivePlayer().getComputerName()).toBe("Computer");
   });
+
+  test("play round function", () => {
+    let game = GameController();
+    game.playRound(7, 9);
+    expect(game.getActivePlayer().getComputerName()).toBe("Computer");
+    
+  });
 })

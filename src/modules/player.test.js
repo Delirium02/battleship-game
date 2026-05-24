@@ -1,6 +1,6 @@
 import { Player, Computer } from "./player";
 
-describe("testing all individual functions inside the Player factory", () => {
+describe("testing functions of the Player factory", () => {
 	test("testing if attack works", () => {
 		const player1 = Player("One");
 		const player2 = Player("Two");

@@ -4,7 +4,7 @@ export default {
   entry: "./src/index.js",
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/template.html",
+      template: "./template.html",
     }),
   ],
   module: {

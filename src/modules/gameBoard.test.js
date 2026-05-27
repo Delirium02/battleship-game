@@ -22,7 +22,7 @@ describe("collective testing of the Gameboard() factory", () => {
 		expect(grid[2][2]).not.toBeNull();
 		expect(typeof grid[2][2]).toBe("object");
 		// checking if it defaulted to vertical placement
-		expect(grid[4][2]).toBe(destroyer);
+		expect(grid[2][4]).toBe(destroyer);
 	});
 
 	test("testing receiveAttack", () => {
@@ -42,8 +42,8 @@ describe("collective testing of the Gameboard() factory", () => {
 		const destroyer = Ship("Destroyer", 3);
 		game.placeShip(destroyer, 2, 2);
 		game.receiveAttack(2, 2);
-		game.receiveAttack(3, 2);
-		game.receiveAttack(4, 2);
+		game.receiveAttack(2, 3);
+		game.receiveAttack(2, 4);
 
 		expect(game.allSunk()).toBe(true);
 	});

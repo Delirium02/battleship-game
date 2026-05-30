@@ -15,31 +15,33 @@ export function GameController() {
 			return activePlayer;
 		},
 
-    getPlayer: function() {
-      return player;
-    },
+		getPlayer: function () {
+			return player;
+		},
 
-    getComputer: function() {
-      return computer;
-    },
+		getComputer: function () {
+			return computer;
+		},
 
 		// shorthand for player's board
-		playerBoard: function() {
+		playerBoard: function () {
 			return player.getPlayerBoard();
 		},
 
 		// shorthand for computer's board
-		computerBoard: function() {
+		computerBoard: function () {
 			return computer.getComputerBoard();
 		},
 
-		playerShip: function(ship, x, y, orientation) {
+		playerShip: function (ship, x, y, orientation) {
 			return player.getPlayerBoard().placeShip(ship, x, y, orientation);
 		},
 
 		// a simpler way to create a new ship - shorter link of functions
-		compShip: function(ship, x, y, orientation) {
-			return computer.getComputerBoard().placeShip(ship, x, y, orientation);
+		compShip: function (ship, x, y, orientation) {
+			return computer
+				.getComputerBoard()
+				.placeShip(ship, x, y, orientation);
 		},
 
 		playRound: function (x, y) {

@@ -1,26 +1,26 @@
 export function Ship(name, length) {
-  let hits = 0;
+	let hits = 0;
 
-  return {
-    getName() {
-      return name;
-    },
+	return {
+		getName() {
+			return name;
+		},
 
-    hit() {
-      hits++;
-    },
+		hit() {
+			hits++;
+		},
 
-    // added getHits() to return number of hits;
-    getHits() {
-      return hits;
-    },
+		// added getHits() to return number of hits;
+		getHits() {
+			return hits;
+		},
 
-    getLength() {
-      return length;
-    },
+		getLength() {
+			return length;
+		},
 
-    isSunk() {
-      return hits >= length;
-    }
-  }
-};
+		isSunk() {
+			return hits >= length;
+		},
+	};
+}

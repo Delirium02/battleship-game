@@ -31,9 +31,9 @@ export function Computer(name = "Computer") {
 			return board;
 		},
 
-    getLastAttack: function() {
-      return lastAttack;
-    },
+		getLastAttack: function () {
+			return lastAttack;
+		},
 
 		computerAttack: function (playerBoard) {
 			let x;

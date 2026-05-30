@@ -13,16 +13,16 @@ describe("testing functions of the Player factory", () => {
 });
 
 describe("testing functions of the Computer factory", () => {
-  test("test of computer basic attack", () => {
-    const player = Player();
-    const computer = Computer();
-    const playerBoard = player.getPlayerBoard();
+	test("test of computer basic attack", () => {
+		const player = Player();
+		const computer = Computer();
+		const playerBoard = player.getPlayerBoard();
 
-    computer.computerAttack(playerBoard);
-    const attackLocation = computer.getLastAttack();
-    const x = attackLocation[0];
-    const y = attackLocation[1];
+		computer.computerAttack(playerBoard);
+		const attackLocation = computer.getLastAttack();
+		const x = attackLocation[0];
+		const y = attackLocation[1];
 
-    expect(playerBoard.getGrid()[x][y]).toBe("miss");
-  })
-})
+		expect(playerBoard.getGrid()[x][y]).toBe("miss");
+	});
+});

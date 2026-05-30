@@ -15,12 +15,12 @@ export function Gameboard() {
 
 	return {
 		// Create an empty grid
-		getGrid: function() {
+		getGrid: function () {
 			return grid;
 		},
 
 		// Place ships
-		placeShip: function(ship, x, y, orientation = "vertical") {
+		placeShip: function (ship, x, y, orientation = "vertical") {
 			const length = ship.getLength();
 
 			// Range checks

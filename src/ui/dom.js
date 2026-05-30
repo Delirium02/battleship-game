@@ -6,17 +6,35 @@ const computerContainer = document.querySelector(".computer-container");
 export function DOM() {
 	const game = GameController();
 
-	let grid = [];
-
 	return {
-		generateGrid: function() {
-			const grid = game.playerBoard().getGrid();
+		playerGrid: function () {
+			const playerGrid = game.playerBoard().getGrid();
 
-			grid.forEach((row, x) => {
-				row.forEach((square, y) => {
+			playerGrid.forEach((row, x) => {
+				row.forEach((item, y) => {
 					const newSquare = document.createElement("div");
-					newSquare.classList.add("cell");
+					newSquare.classList.add("square");
+
+					newSquare.dataset.x = x;
+					newSquare.dataset.y = y;
+
 					playerContainer.appendChild(newSquare);
+				});
+			});
+		},
+
+		computerGrid: function () {
+			const compGrid = game.computerBoard().getGrid();
+
+			compGrid.forEach((row, x) => {
+				row.forEach((item, y) => {
+					const newSquare = document.createElement("div");
+					newSquare.classList.add("square");
+
+					newSquare.dataset.x = x;
+					newSquare.dataset.y = y;
+
+					computerContainer.appendChild(newSquare);
 				});
 			});
 		},

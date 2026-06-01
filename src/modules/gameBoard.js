@@ -67,14 +67,20 @@ export function Gameboard() {
 				);
 			}
 
-			if (grid[x][y] !== null) {
-				grid[x][y].hit();
-				grid[x][y] = "hit";
-				return "hit";
-			} else {
-				grid[x][y] = "miss";
-				return "miss";
+			let square = grid[x][y];
+
+			if (square === "hit" || square === "miss") {
+				throw new Error("This square has already been attacked");
 			}
+
+			if (square !== null) {
+				square.hit();
+				square = "hit";				
+			} else {
+				square = "miss";				
+			}
+
+			return square;
 		},
 
 		allSunk: function () {

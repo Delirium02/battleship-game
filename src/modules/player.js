@@ -4,11 +4,11 @@ export function Player(name = "Player") {
 	const board = Gameboard();
 
 	return {
-		getPlayerName: function () {
+		getName: function () {
 			return name;
 		},
 
-		getPlayerBoard: function () {
+		getBoard: function () {
 			return board;
 		},
 
@@ -23,11 +23,11 @@ export function Computer(name = "Computer") {
 	let lastAttack = [];
 
 	return {
-		getComputerName: function () {
+		getName: function () {
 			return name;
 		},
 
-		getComputerBoard: function () {
+		getBoard: function () {
 			return board;
 		},
 

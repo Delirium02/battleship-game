@@ -3,8 +3,7 @@ import { GameController } from "../gameController.js";
 const playerContainer = document.querySelector(".player-container");
 const computerContainer = document.querySelector(".computer-container");
 
-export function DOM() {
-	const game = GameController();
+export function DOM(game) {
 
 	return {
 		playerGrid: function () {
@@ -38,5 +37,33 @@ export function DOM() {
 				});
 			});
 		},
+
+		updateDisplay: function (square) {
+			const attackStatus = DOM().playerBoard().
+			square.classList.add()
+		},
+
+		attackListeners: function () {
+			computerContainer.addEventListener("click", (e) => {
+				if (e.target.classList.contains("square")) {
+					const x = Number(e.target.dataset.x);
+					const y = Number(e.target.dataset.y);
+
+					const result = game.playRound(x, y);
+					
+
+					console.log(result);
+				}
+			})
+		},
+
+		/* startGame: function () {
+			const startBtn = document.querySelector("start-btn");
+
+			startBtn.addEventListener("click", () => {
+				DOM().playerGrid();
+				DOM().computerGrid();
+			});
+		}, */
 	};
 }

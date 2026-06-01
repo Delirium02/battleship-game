@@ -25,30 +25,28 @@ export function GameController() {
 
 		// shorthand for player's board
 		playerBoard: function () {
-			return player.getPlayerBoard();
+			return player.getBoard();
 		},
 
 		// shorthand for computer's board
 		computerBoard: function () {
-			return computer.getComputerBoard();
+			return computer.getBoard();
 		},
 
 		playerShip: function (ship, x, y, orientation) {
-			return player.getPlayerBoard().placeShip(ship, x, y, orientation);
+			return player.getBoard().placeShip(ship, x, y, orientation);
 		},
 
 		// a simpler way to create a new ship - shorter link of functions
 		compShip: function (ship, x, y, orientation) {
-			return computer
-				.getComputerBoard()
-				.placeShip(ship, x, y, orientation);
+			return computer.getBoard().placeShip(ship, x, y, orientation);
 		},
 
 		playRound: function (x, y) {
 			const enemyBoard = () => {
 				return activePlayer === player
-					? computer.getComputerBoard()
-					: player.getPlayerBoard();
+					? computer.getBoard()
+					: player.getBoard();
 			};
 
 			if (activePlayer === player) {
@@ -56,7 +54,7 @@ export function GameController() {
 			}
 
 			if (enemyBoard().allSunk()) {
-				return `Game over! ${activePlayer.getPlayerName()} won!`;
+				return `Game over! ${activePlayer.getName()} won!`;
 			}
 
 			this.switchTurn();
@@ -66,7 +64,7 @@ export function GameController() {
 			}
 
 			if (enemyBoard().allSunk()) {
-				return `Game over! ${activePlayer.getComputerName()} won!`;
+				return `Game over! ${activePlayer.getName()} won!`;
 			}
 
 			this.switchTurn();

@@ -36,17 +36,19 @@ export function Computer(name = "Computer") {
 		},
 
 		computerAttack: function (playerBoard) {
-			let x;
-			let y;
+			const validMoves = [];
 
-			do {
-				x = Math.floor(Math.random() * 10);
-				y = Math.floor(Math.random() * 10);
-			} while (playerBoard.getGrid()[x][y] !== null);
+			for (let i = 0; i < 10; i++) {
+				for (let j = 0; j < 10; j++) {
+					if (playerBoard.getGrid()[i][j] === null) {
+						validMoves.push({ x: i, y: j });
+					}
+				}
+			}
 
-			lastAttack = [x, y];
+			const randomIndex = validMoves[Math.floor(Math.random() * validMoves.length)];
 
-			return playerBoard.receiveAttack(x, y);
+			return playerBoard.receiveAttack(randomIndex.x, randomIndex.y);
 		},
 	};
 }

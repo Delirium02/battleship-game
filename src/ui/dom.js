@@ -40,7 +40,7 @@ export function DOM(game) {
 
 		updateDisplay: function (square) {
 			const attackStatus = DOM().playerBoard().
-			square.classList.add()
+			square.classList.add() //
 		},
 
 		attackListeners: function () {
@@ -50,7 +50,15 @@ export function DOM(game) {
 					const y = Number(e.target.dataset.y);
 
 					const result = game.playRound(x, y);
-					
+					if (result === false) {
+						return "This square has already been attacked"; // modify to display on screen instead of console
+					}
+					if (result === "hit") {
+						e.target.classList.add("hit");
+					}
+					if (result === "miss") {
+						e.target.classList.add("miss");
+					}
 
 					console.log(result);
 				}

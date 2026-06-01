@@ -50,6 +50,9 @@ export function GameController() {
 			};
 
 			if (activePlayer === player) {
+				if (enemyBoard().getGrid()[x][y] === "hit" || enemyBoard().getGrid()[x][y] === "miss") {
+					return false;
+				}
 				activePlayer.playerAttack(enemyBoard(), x, y);
 			}
 

@@ -67,10 +67,6 @@ export function Gameboard() {
 				);
 			}
 
-			if (grid[x][y] === "hit" || grid[x][y] === "miss") {
-				return false;
-			}
-
 			if (grid[x][y] !== null) {
 				grid[x][y].hit();
 				grid[x][y] = "hit";

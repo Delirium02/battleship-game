@@ -40,13 +40,15 @@ export function Computer(name = "Computer") {
 
 			for (let i = 0; i < 10; i++) {
 				for (let j = 0; j < 10; j++) {
-					if (playerBoard.getGrid()[i][j] === null) {
+					if (playerBoard.getGrid()[i][j] !== "hit" && playerBoard.getGrid()[i][j] !== "miss") {
 						validMoves.push({ x: i, y: j });
 					}
 				}
 			}
 
 			const randomIndex = validMoves[Math.floor(Math.random() * validMoves.length)];
+
+			lastAttack = { x: randomIndex.x, y: randomIndex.y };
 
 			return playerBoard.receiveAttack(randomIndex.x, randomIndex.y);
 		},

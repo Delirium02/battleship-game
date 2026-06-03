@@ -21,3 +21,5 @@ const ui = DOM(game);
 ui.playerGrid();
 ui.computerGrid();
 ui.attackListeners();
+ui.updateDisplay(document.querySelector(".player-container"), game.playerBoard());
+ui.updateDisplay(document.querySelector(".computer-container"), game.computerBoard());

@@ -57,6 +57,14 @@ body {
     cursor: pointer;
 }
 
+.ship {
+    background-color: rgb(187, 255, 61);
+}
+
 .hit {
     background-color: red;
+}
+
+.miss {
+    background-color: white;
 }

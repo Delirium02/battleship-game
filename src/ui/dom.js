@@ -4,7 +4,6 @@ const playerContainer = document.querySelector(".player-container");
 const computerContainer = document.querySelector(".computer-container");
 
 export function DOM(game) {
-
 	return {
 		playerGrid: function () {
 			const playerGrid = game.playerBoard().getGrid();
@@ -38,9 +37,26 @@ export function DOM(game) {
 			});
 		},
 
-		updateDisplay: function (square) {
-			const attackStatus = DOM().playerBoard().
-			square.classList.add() //
+		// for container: playerContainer or computerContainer. for board: playerBoard or computerBoard
+		updateDisplay: function (container, board) {
+			const squares = container.querySelectorAll(".square");
+			const boardGrid = board.getGrid();
+
+			boardGrid.forEach((row, x) => {
+				row.forEach((cell, y) => {
+					const index = x * 10 + y;
+					const square = squares[index];
+					if (cell !== null && cell !== "hit" && cell !== "miss" && board === game.playerBoard()) {
+						square.classList.add("ship");
+					}
+					if (cell === "hit") {
+						square.classList.add("hit");
+					}
+					if (cell === "miss") {
+						square.classList.add("miss");
+					}
+				});
+			});
 		},
 
 		attackListeners: function () {
@@ -53,16 +69,12 @@ export function DOM(game) {
 					if (result === false) {
 						return "This square has already been attacked"; // modify to display on screen instead of console
 					}
-					if (result === "hit") {
-						e.target.classList.add("hit");
-					}
-					if (result === "miss") {
-						e.target.classList.add("miss");
-					}
+					this.updateDisplay(playerContainer, game.playerBoard());
+					this.updateDisplay(computerContainer, game.computerBoard());
 
 					console.log(result);
 				}
-			})
+			});
 		},
 
 		/* startGame: function () {

@@ -4,7 +4,7 @@ describe("testing functions of the Player factory", () => {
 	test("testing if attack works", () => {
 		const player1 = Player("One");
 		const player2 = Player("Two");
-		const enemyBoard = player2.getPlayerBoard();
+		const enemyBoard = player2.getBoard();
 
 		player1.playerAttack(enemyBoard, 2, 2);
 
@@ -16,12 +16,12 @@ describe("testing functions of the Computer factory", () => {
 	test("test of computer basic attack", () => {
 		const player = Player();
 		const computer = Computer();
-		const playerBoard = player.getPlayerBoard();
+		const playerBoard = player.getBoard();
 
 		computer.computerAttack(playerBoard);
 		const attackLocation = computer.getLastAttack();
-		const x = attackLocation[0];
-		const y = attackLocation[1];
+		const x = attackLocation.x;
+		const y = attackLocation.y;
 
 		expect(playerBoard.getGrid()[x][y]).toBe("miss");
 	});

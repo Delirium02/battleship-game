@@ -1,3 +1,4 @@
+import { Ship } from "../modules/ship.js";
 import { GameController } from "../gameController.js";
 
 const playerContainer = document.querySelector(".player-container");
@@ -46,7 +47,10 @@ export function DOM(game) {
 				row.forEach((cell, y) => {
 					const index = x * 10 + y;
 					const square = squares[index];
-					if (cell !== null && cell !== "hit" && cell !== "miss" && board === game.playerBoard()) {
+					if (
+						cell !== null &&
+						container.classList.contains("player-container")
+					) {
 						square.classList.add("ship");
 					}
 					if (cell === "hit") {
@@ -71,19 +75,46 @@ export function DOM(game) {
 					}
 					this.updateDisplay(playerContainer, game.playerBoard());
 					this.updateDisplay(computerContainer, game.computerBoard());
-
-					console.log(result);
 				}
 			});
 		},
 
-		/* startGame: function () {
-			const startBtn = document.querySelector("start-btn");
+		generateRandomShips: function () {},
+
+		startGame: function () {
+			const startBtn = document.querySelector(".start-btn");
+
+			const launchGame = (game) => {
+				game.playerShip(Ship("destroyer", 2), 0, 0, "horizontal");
+				game.playerShip(Ship("submarine", 3), 2, 2, "vertical");
+				game.playerShip(Ship("cruiser", 3), 5, 5, "horizontal");
+				game.playerShip(Ship("battleship", 4), 4, 0, "vertical");
+				game.playerShip(Ship("carrier", 5), 9, 4, "horizontal");
+
+				game.compShip(Ship("destroyer", 2), 0, 0, "horizontal");
+				game.compShip(Ship("submarine", 3), 2, 2, "vertical");
+				game.compShip(Ship("cruiser", 3), 5, 5, "horizontal");
+				game.compShip(Ship("battleship", 4), 4, 0, "vertical");
+				game.compShip(Ship("carrier", 5), 9, 4, "horizontal");
+
+				const ui = DOM(game);
+				ui.playerGrid();
+				ui.computerGrid();
+				ui.attackListeners();
+				ui.updateDisplay(
+					document.querySelector(".player-container"),
+					game.playerBoard(),
+				);
+				ui.updateDisplay(
+					document.querySelector(".computer-container"),
+					game.computerBoard(),
+				);
+			};
 
 			startBtn.addEventListener("click", () => {
-				DOM().playerGrid();
-				DOM().computerGrid();
+				startBtn.style.display = "none";
+				launchGame(GameController());
 			});
-		}, */
+		},
 	};
 }

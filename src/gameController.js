@@ -57,7 +57,7 @@ export function GameController() {
 			}
 
 			if (enemyBoard().allSunk()) {
-				return `Game over! ${activePlayer.getName()} won!`;
+				return `player won`;
 			}
 
 			this.switchTurn();
@@ -67,7 +67,7 @@ export function GameController() {
 			}
 
 			if (enemyBoard().allSunk()) {
-				return `Game over! ${activePlayer.getName()} won!`;
+				return `computer won`;
 			}
 
 			this.switchTurn();

@@ -22,5 +22,7 @@ export function Ship(name, length) {
 		isSunk() {
 			return hits >= length;
 		},
+
+
 	};
 }

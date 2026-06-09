@@ -1,3 +1,4 @@
+import { Ship } from "./modules/ship.js";
 import { Player, Computer } from "./modules/player.js";
 
 export function GameController() {
@@ -33,12 +34,14 @@ export function GameController() {
 			return computer.getBoard();
 		},
 
-		playerShip: function (ship, x, y, orientation) {
+		playerShip: function (name, length, x, y, orientation) {
+			const ship = Ship(name, length);
 			return player.getBoard().placeShip(ship, x, y, orientation);
 		},
 
 		// a simpler way to create a new ship - shorter link of functions
-		compShip: function (ship, x, y, orientation) {
+		compShip: function (name, length, x, y, orientation) {
+			const ship = Ship(name, length);
 			return computer.getBoard().placeShip(ship, x, y, orientation);
 		},
 
@@ -74,5 +77,7 @@ export function GameController() {
 
 			return "turn complete";
 		},
+
+
 	};
 }

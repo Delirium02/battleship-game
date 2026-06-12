@@ -83,7 +83,9 @@ export function DOM(game) {
 				{ name: "Carrier", length: 5 },
 				{ name: "Cruiser", length: 4 },
 				{ name: "Submarine", length: 3 },
-				{ name: "Destroyer", length: 2 },
+				{ name: "Destroyer", length: 3 },
+				{ name: "Frigate", length: 2 },
+				{ name: "Corvette", length: 2 }
 			];
 
 			const orientation = ["vertical", "horizontal"];
@@ -103,9 +105,7 @@ export function DOM(game) {
 					try {
 						user(ship.name, ship.length, x, y, randomOrientation);
 						placed = true;
-					} catch (error) {
-
-					}
+					} catch (error) {}
 				}
 			});
 		},

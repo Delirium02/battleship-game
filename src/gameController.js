@@ -77,7 +77,5 @@ export function GameController() {
 
 			return "turn complete";
 		},
-
-
 	};
 }

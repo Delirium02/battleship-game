@@ -3,7 +3,9 @@ import { GameController } from "../gameController.js";
 const playerContainer = document.querySelector(".player-container");
 const computerContainer = document.querySelector(".computer-container");
 
-export function DOM(game) {
+export function DOM(initialGame) {
+	let game = initialGame;
+
 	return {
 		playerGrid: function () {
 			const playerGrid = game.playerBoard().getGrid();
@@ -85,7 +87,7 @@ export function DOM(game) {
 				{ name: "Submarine", length: 3 },
 				{ name: "Destroyer", length: 3 },
 				{ name: "Frigate", length: 2 },
-				{ name: "Corvette", length: 2 }
+				{ name: "Corvette", length: 2 },
 			];
 
 			const orientation = ["vertical", "horizontal"];
@@ -110,21 +112,22 @@ export function DOM(game) {
 			});
 		},
 
-		launchGame: function (game) {
+		launchGame: function (activeGame) {
+			game = activeGame;
+
 			this.generateRandomShips(game, game.playerShip.bind(game));
 			this.generateRandomShips(game, game.compShip.bind(game));
 
-			const ui = DOM(game);
 			playerContainer.innerHTML = "";
 			computerContainer.innerHTML = "";
-			ui.playerGrid();
-			ui.computerGrid();
-			ui.attackListeners();
-			ui.updateDisplay(
+			this.playerGrid();
+			this.computerGrid();
+			this.attackListeners();
+			this.updateDisplay(
 				document.querySelector(".player-container"),
 				game.playerBoard(),
 			);
-			ui.updateDisplay(
+			this.updateDisplay(
 				document.querySelector(".computer-container"),
 				game.computerBoard(),
 			);

@@ -11,7 +11,7 @@ The architecture relies on separated modules to handle data logic and user inter
 
     Dynamic UI: Uses native DOM manipulation to render interactive grids, register click-based tracking listeners, and dynamically apply visual states for hits, misses, and ship positions.  
 
-Current Project Status
+Current Project Status:
 
 The core engines and UI rendering pipelines are mostly intact, but the project is currently frozen in an unfinished state.
 What Works:
@@ -33,5 +33,4 @@ Tech Stack
     JavaScript (ES6 Modules)
     HTML5
     CSS3
-
     Webpack (for module bundling and asset management)
